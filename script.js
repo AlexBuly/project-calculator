@@ -9,13 +9,21 @@ console.log(subtract);
 console.log(multiply);
 console.log(divide);
 
- const operate = (num1, op, num2) => {
-    op = ["+", "-", "*", "/"]
-    if (op === "+") {
-        return num1 + add + num2;
-    }
+
+const num1 = operate;
+const op = operate;
+const num2 = operate;
+
+function operate(num1, op, num2) {
+    return op === "+" ? add(num1, num2)
+        : op === "-" ? subtract(num1, num2)
+        : op === "*" ? multiply(num1, num2)
+        : op === "/" ? divide(num1, num2)
+        : null;
  }
- console.log(operate);
+
+ const result = operate(num1, op, num2);
+ console.log(result);
 
 // takes in numbers to run the calculator with one function 
 // calculator buttons
