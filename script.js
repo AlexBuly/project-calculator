@@ -9,6 +9,14 @@ console.log(subtract);
 console.log(multiply);
 console.log(divide);
 
+ const operate = (num1, op, num2) => {
+    op = ["+", "-", "*", "/"]
+    if (op === "+") {
+        return num1 + add + num2;
+    }
+ }
+ console.log(operate);
+
 // takes in numbers to run the calculator with one function 
 // calculator buttons
 // populate display 
