@@ -9,7 +9,7 @@ console.log(subtract);
 console.log(multiply);
 console.log(divide);
 
-
+// takes in numbers to run the calculator with one function 
 const num1 = operate;
 const op = operate;
 const num2 = operate;
@@ -25,7 +25,7 @@ function operate(num1, op, num2) {
  const result = operate(num1, op, num2);
  console.log(result);
 
-// takes in numbers to run the calculator with one function 
+const calculator = document.querySelector(".calcualtor");
 // calculator buttons
 // populate display 
 // use result and new number as new number pair 
