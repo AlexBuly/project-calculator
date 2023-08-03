@@ -3,8 +3,8 @@
     width: 300px;
     border: 2px solid black;
     display: flex;
-    margin: 0 auto;
-    
+    margin: auto;  
+    display: flex;
 }
 
 .display {
@@ -12,5 +12,11 @@
     height: 40%;
     width: 100%;
     border-bottom: 2px solid black;
-    justify-content: flex-end;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
 }
