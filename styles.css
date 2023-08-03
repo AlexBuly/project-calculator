@@ -1,5 +1,16 @@
 .calculator {
     height: 500px;
-    width: 25%;
+    width: 300px;
     border: 2px solid black;
+    display: flex;
+    margin: 0 auto;
+    
+}
+
+.display {
+    display: flex;
+    height: 40%;
+    width: 100%;
+    border-bottom: 2px solid black;
+    justify-content: flex-end;
 }

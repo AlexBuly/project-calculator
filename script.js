@@ -25,8 +25,12 @@ function operate(num1, op, num2) {
  const result = operate(num1, op, num2);
  console.log(result);
 
-const calculator = document.querySelector(".calcualtor");
 // calculator buttons
+const calculator = document.querySelector(".calculator");
+
+const display = document.createElement("div");
+display.classList.add("display");
+calculator.appendChild(display);
 // populate display 
 // use result and new number as new number pair 
 // works when dividing by 0 
