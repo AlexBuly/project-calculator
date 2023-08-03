@@ -31,6 +31,21 @@ const calculator = document.querySelector(".calculator");
 const display = document.createElement("div");
 display.classList.add("display");
 calculator.appendChild(display);
+
+const numBtns = document.createElement("div");
+numBtns.classList.add("numBtns");
+calculator.appendChild(numBtns);
+
+const operations = document.createElement("div");
+operations.classList.add("operation");
+numBtns.appendChild(operations);
+
+for (let i = 0; i < 5; ++i) {
+    const operateBtns = document.createElement("button");
+    operateBtns.classList.add("operateBtns");
+    operations.appendChild(operateBtns);
+    operateBtns.style.cssText = "height: calc(100% / 5); width: calc(100%)";
+}
 // populate display 
 // use result and new number as new number pair 
 // works when dividing by 0 
