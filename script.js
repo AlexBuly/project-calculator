@@ -32,20 +32,59 @@ const display = document.createElement("div");
 display.classList.add("display");
 calculator.appendChild(display);
 
-const numBtns = document.createElement("div");
-numBtns.classList.add("numBtns");
-calculator.appendChild(numBtns);
+const btns = document.createElement("div");
+btns.classList.add("btns");
+calculator.appendChild(btns);
 
 const operations = document.createElement("div");
 operations.classList.add("operation");
-numBtns.appendChild(operations);
+btns.appendChild(operations);
 
-for (let i = 0; i < 5; ++i) {
+const opLabels = ["+", "-", "*", "/", "="]
+
+for (let i = 0; i < opLabels.length; ++i) {
     const operateBtns = document.createElement("button");
     operateBtns.classList.add("operateBtns");
     operations.appendChild(operateBtns);
-    operateBtns.style.cssText = "height: calc(100% / 5); width: calc(100%)";
+    operateBtns.style.cssText = "height: calc(100% / 5); width: calc(100%); font-size: 4vh; color: white";
+    operateBtns.textContent = opLabels[i];
 }
+
+const left = document.createElement("div");
+left.classList.add("left");
+operations.insertAdjacentElement("beforebegin", left);
+
+const nums = document.createElement("div");
+nums.classList.add("nums");
+left.appendChild(nums);
+nums.style.cssText = "height: 60%"
+
+const numLables = ["7", "8", "9", "4", "5", "6", "1", "2", "3"];
+
+for (let n = 0; n < numLables.length; ++n) {
+    const leftBtns = document.createElement("button");
+    leftBtns.classList.add("leftBtns");
+    nums.appendChild(leftBtns);
+    leftBtns.style.cssText = "height: calc(100% / 3); width: calc(100% / 3); display: inline-flex; background-color: darkblue; border: none; color: white; font-size: 4vh; align-items: center; justify-content: center";
+    leftBtns.textContent = numLables[n];
+}
+
+const leftTop = document.createElement("div");
+leftTop.classList.add("leftTop");
+nums.insertAdjacentElement("beforebegin", leftTop);
+leftTop.style.cssText = "height: 20%";
+
+const topLables = ["C", "DEL"];
+
+for (let l = 0; l < topLables.length; ++l) {
+    const topBtns = document.createElement("button");
+    topBtns.classList.add("topBtns");
+    leftTop.appendChild(topBtns);
+    topBtns.textContent = topLables[l];
+}
+
+
+
 // populate display 
 // use result and new number as new number pair 
 // works when dividing by 0 
