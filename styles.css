@@ -70,14 +70,32 @@ body {
     justify-content: center;
 }
 
-.topBtns {
+.clear {
+    height: 100%;
+    width: 50%;
+    font-size: 3vh;
+    background-color: rgb(18, 126, 103);
+    color: white;
+    border: none;
+    border-radius: 3vh;
+}
+
+.del {
     height: 100%;
     width: calc(100% / 2);
     font-size: 3vh;
     background-color: rgb(18, 126, 103);
     color: white;
     border: none;
-    border-radius: 3vh;
+    border-radius: 3vh; 
+}
+
+.clear:hover {
+    background-color: rgb(13, 88, 72);
+}
+
+.del:hover {
+    background-color: rgb(13, 88, 72);
 }
 
 .bottomBtns {
@@ -92,8 +110,4 @@ body {
 
 button {
     cursor: pointer;
-}
-
-button.topBtns:hover {
-    background-color: rgb(13, 88, 72);
 }

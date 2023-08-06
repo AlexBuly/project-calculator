@@ -31,7 +31,7 @@ const calculator = document.querySelector(".calculator");
 const display = document.createElement("div");
 display.classList.add("display");
 calculator.appendChild(display);
-display.textContent = "0123456789";
+display.textContent = 0;
 
 const btns = document.createElement("div");
 btns.classList.add("btns");
@@ -71,7 +71,7 @@ for (let n = 0; n < numLables.length; ++n) {
 
     leftBtns.addEventListener("click", () => {
         display.textContent = numLables[n];
-    })
+    });
 }
 
 nums.addEventListener("mouseover", (event) => {
@@ -91,16 +91,21 @@ nums.addEventListener("mouseout", (event) => {
 const leftTop = document.createElement("div");
 leftTop.classList.add("leftTop");
 nums.insertAdjacentElement("beforebegin", leftTop);
-leftTop.style.cssText = "height: 20%; background-color: rgb(18, 126, 103)";
+leftTop.style.cssText = "height: 20%; background-color: rgb(18, 126, 103); display: flex";
 
-const topLables = ["C", "DEL"];
+const clear = document.createElement("button");
+clear.classList.add("clear");
+leftTop.appendChild(clear);
+clear.textContent = "C";
 
-for (let t = 0; t < topLables.length; ++t) {
-    const topBtns = document.createElement("button");
-    topBtns.classList.add("topBtns");
-    leftTop.appendChild(topBtns);
-    topBtns.textContent = topLables[t];
-}
+clear.addEventListener("click", () => {
+    display.textContent = 0;
+});
+
+const del = document.createElement("button");
+del.classList.add("del");
+leftTop.appendChild(del);
+del.textContent = "DEL";
 
 const leftBottom = document.createElement("div");
 leftBottom.classList.add("leftBottom");
