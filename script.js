@@ -60,7 +60,7 @@ nums.classList.add("nums");
 left.appendChild(nums);
 nums.style.cssText = "height: 60%"
 
-const numLables = ["7", "8", "9", "4", "5", "6", "1", "2", "3"];
+const numLables = [7, 8, 9, 4, 5, 6, 1, 2, 3];
 
 for (let n = 0; n < numLables.length; ++n) {
     const leftBtns = document.createElement("button");
@@ -126,9 +126,7 @@ for (let b = 0; b < bottomLables.length; ++b) {
     bottomBtns.textContent = bottomLables[b];
 }
 
+// populate display
 
-
-
-// populate display 
 // use result and new number as new number pair 
 // works when dividing by 0 
