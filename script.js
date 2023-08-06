@@ -41,7 +41,7 @@ const operations = document.createElement("div");
 operations.classList.add("operation");
 btns.appendChild(operations);
 
-const opLabels = ["/", "*", "-", "+", "="]
+const opLabels = ["/", "*", "-", "+", "="];
 
 for (let i = 0; i < opLabels.length; ++i) {
     const operateBtns = document.createElement("button");
@@ -68,6 +68,10 @@ for (let n = 0; n < numLables.length; ++n) {
     nums.appendChild(leftBtns);
     leftBtns.style.cssText = "height: calc(100% / 3); width: calc(100% / 3); display: inline-flex; background-color: darkblue; border: none; color: white; font-size: 4vh; align-items: center; justify-content: center; border-radius: 3vh";
     leftBtns.textContent = numLables[n];
+
+    leftBtns.addEventListener("click", () => {
+        display.textContent = numLables[n];
+    })
 }
 
 nums.addEventListener("mouseover", (event) => {
@@ -127,6 +131,5 @@ for (let b = 0; b < bottomLables.length; ++b) {
 }
 
 // populate display
-
 // use result and new number as new number pair 
 // works when dividing by 0 
