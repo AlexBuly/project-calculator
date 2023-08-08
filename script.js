@@ -19,11 +19,13 @@ function operate(num1, op, num2) {
         : op === "-" ? subtract(num1, num2)
         : op === "*" ? multiply(num1, num2)
         : op === "/" ? divide(num1, num2)
-        : null;
+        : null; 
  }
 
- const equ = operate(num1, op, num2);
- console.log(equ);
+ const result = operate(num1, op, num2);
+ console.log(result);
+
+ const display = document.querySelector(".display");
 
 // calculator buttons
 const calculator = document.querySelector(".calculator");
@@ -40,10 +42,10 @@ leftBtns.forEach((btn, index) => {
     btn.textContent = numLabels[index];
 });
 
-
-
-
-
+leftBtns.addEventListener("click", () => {
+    num1 = numLabels.forEach((num) => numLabels[num]);
+    //display.textContent = function for display 
+});
 
 // populate display
 // use result and new number as new number pair 
