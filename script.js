@@ -51,6 +51,13 @@ del.addEventListener("click", () => {
     display.textContent = displayArray.join('');
 });
 
+const decimal = document.querySelector("#decimal");
+decimal.addEventListener("click", () => {
+    dec = ".";
+    displayArray.push(dec);
+    display.textContent = displayArray.join('');
+});
+
 // takes in numbers to run the calculator with one function 
 function operate(num1, op, num2) {
     return op === "+" ? add(num1, num2)
