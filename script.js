@@ -45,6 +45,12 @@ clear.addEventListener("click", () => {
     display.textContent = 0;
 });
 
+const del = document.querySelector(".del");
+del.addEventListener("click", () => {
+    displayArray.splice(-1);
+    display.textContent = displayArray.join('');
+});
+
 // takes in numbers to run the calculator with one function 
 function operate(num1, op, num2) {
     return op === "+" ? add(num1, num2)
