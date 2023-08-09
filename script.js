@@ -25,6 +25,7 @@ operateBtns.forEach((btn, index) => {
     })
 });
 
+// populate display
 const numLabels = [7, 8, 9, 4, 5, 6, 1, 2, 3];
 const leftBtns = document.querySelectorAll(".leftBtns");
 leftBtns.forEach((btn, index) => {
@@ -33,17 +34,15 @@ leftBtns.forEach((btn, index) => {
         num1 = numLabels[index];
         num2 = numLabels[index];
         displayArray.push(num1);
+        displayArray.splice(10);
         display.textContent = displayArray.join('');
     });
 });
-
-console.log(displayArray);
 
 const clear = document.querySelector(".clear");
 clear.addEventListener("click", () => {
     displayArray.length = 0;
     display.textContent = 0;
-
 });
 
 // takes in numbers to run the calculator with one function 
@@ -55,8 +54,5 @@ function operate(num1, op, num2) {
     : 0; 
 }
 
-
-
-// populate display
 // use result and new number as new number pair 
 // works when dividing by 0 
