@@ -43,12 +43,14 @@ const clear = document.querySelector(".clear");
 clear.addEventListener("click", () => {
     displayArray.length = 0;
     display.textContent = 0;
+    enableDecimal();
 });
 
 const del = document.querySelector(".del");
 del.addEventListener("click", () => {
     displayArray.splice(-1);
     display.textContent = displayArray.join('');
+    enableDecimal();
 });
 
 const decimal = document.querySelector("#decimal");
@@ -56,7 +58,18 @@ decimal.addEventListener("click", () => {
     dec = ".";
     displayArray.push(dec);
     display.textContent = displayArray.join('');
+    disableDecimal();
 });
+
+const disableDecimal = () => {
+    decimal.disabled = true;
+    decimal.classList.add("disabed");
+}
+
+const enableDecimal = () => {
+    decimal.disabled = false;
+    decimal.classList.remove("disabled")
+}
 
 // takes in numbers to run the calculator with one function 
 function operate(num1, op, num2) {
