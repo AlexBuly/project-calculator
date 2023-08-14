@@ -22,7 +22,7 @@ operateBtns.forEach((btn, index) => {
     btn.textContent = opLabels[index];
     btn.addEventListener("click", () => {
         op = opLabels[index];
-    })
+    });
 });
 
 // populate display
@@ -31,9 +31,8 @@ const leftBtns = document.querySelectorAll(".leftBtns");
 leftBtns.forEach((btn, index) => {
     btn.textContent = numLabels[index];
     btn.addEventListener("click", () => {
-        num1 = numLabels[index];
-        num2 = numLabels[index];
-        displayArray.push(num1);
+        //num1 = numLabels[index];
+        displayArray.push(numLabels[index]);
         displayArray.splice(10);
         display.textContent = displayArray.join('');
     });
