@@ -22,6 +22,7 @@ operateBtns.forEach((btn, index) => {
     btn.textContent = opLabels[index];
     btn.addEventListener("click", () => {
         op = opLabels[index];
+        num1 = displayArray.join('');
     });
 });
 
