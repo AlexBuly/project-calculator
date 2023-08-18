@@ -23,6 +23,7 @@ operateBtns.forEach((btn, index) => {
     btn.addEventListener("click", () => {
         op = opLabels[index];
         num1 = num2;
+        display.textContent = operate(num1, op, num2);
     });
 });
 
