@@ -22,7 +22,7 @@ operateBtns.forEach((btn, index) => {
     btn.textContent = opLabels[index];
     btn.addEventListener("click", () => {
         op = opLabels[index];
-        num1 = displayArray.join('');
+        num1 = num2;
     });
 });
 
@@ -35,7 +35,8 @@ leftBtns.forEach((btn, index) => {
         //num1 = numLabels[index];
         displayArray.push(numLabels[index]);
         displayArray.splice(10);
-        display.textContent = displayArray.join('');
+        num2 = displayArray.join('')
+        display.textContent = num2;
     });
 });
 
@@ -43,6 +44,7 @@ const clear = document.querySelector(".clear");
 clear.addEventListener("click", () => {
     displayArray.length = 0;
     display.textContent = 0;
+    num1 = '';
     enableDecimal();
 });
 
