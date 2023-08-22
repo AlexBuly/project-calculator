@@ -22,21 +22,28 @@ operateBtns.forEach((btn, index) => {
     btn.textContent = opLabels[index];
     btn.addEventListener("click", () => {
         op = opLabels[index];
-        num1 = num2;
         display.textContent = operate(num1, op, num2);
+        firstNum();
     });
 });
 
+const firstNum = () => {
+    const values = {
+        value1: num1
+    }
+    displayArray.push(values);
+    console.log(values);
+}
 // populate display
 const numLabels = [7, 8, 9, 4, 5, 6, 1, 2, 3];
 const leftBtns = document.querySelectorAll(".leftBtns");
 leftBtns.forEach((btn, index) => {
     btn.textContent = numLabels[index];
     btn.addEventListener("click", () => {
-        //num1 = numLabels[index];
-        displayArray.push(numLabels[index]);
+        num1 = numLabels[index];
+        displayArray.push(num1);
         displayArray.splice(10);
-        num2 = displayArray.join('')
+        num2 = displayArray.join('');
         display.textContent = num2;
     });
 });
@@ -46,6 +53,7 @@ clear.addEventListener("click", () => {
     displayArray.length = 0;
     display.textContent = 0;
     num1 = '';
+    num2 = '';
     enableDecimal();
 });
 
