@@ -61,6 +61,7 @@ const del = document.querySelector(".del");
 del.addEventListener("click", () => {
     displayArray.splice(-1);
     display.textContent = displayArray.join('');
+    num1 = '';
     enableDecimal();
 });
 
