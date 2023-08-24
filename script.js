@@ -22,14 +22,16 @@ operateBtns.forEach((btn, index) => {
     btn.textContent = opLabels[index];
     btn.addEventListener("click", () => {
         op = opLabels[index];
-        display.textContent = operate(num1, op, num2);
+        num1 = displayArray.join('');
         firstNum();
+        num2;
+        display.textContent = operate(num1, op, num2);
     });
 });
 
 const firstNum = () => {
     const values = {
-        value1: num1
+        value1: num1,
     }
     displayArray.push(values);
     console.log(values);
@@ -40,11 +42,10 @@ const leftBtns = document.querySelectorAll(".leftBtns");
 leftBtns.forEach((btn, index) => {
     btn.textContent = numLabels[index];
     btn.addEventListener("click", () => {
-        num1 = numLabels[index];
-        displayArray.push(num1);
+        num = numLabels[index];
+        displayArray.push(num);
         displayArray.splice(10);
-        num2 = displayArray.join('');
-        display.textContent = num2;
+        display.textContent =  displayArray.join('');
     });
 });
 
@@ -53,7 +54,6 @@ clear.addEventListener("click", () => {
     displayArray.length = 0;
     display.textContent = 0;
     num1 = '';
-    num2 = '';
     enableDecimal();
 });
 
