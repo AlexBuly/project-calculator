@@ -24,8 +24,9 @@ operateBtns.forEach((btn, index) => {
         op = opLabels[index];
         num1 = displayArray.join('');
         firstNum();
-        num2;
-        display.textContent = operate(num1, op, num2);
+        displayArray.length = 0;
+        operate(num1, op, num2);
+        display.textContent = displayArray.length = 0;
     });
 });
 
