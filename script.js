@@ -26,7 +26,6 @@ operateBtns.forEach((btn, index) => {
         firstNum();
         displayArray.length = 0;
         operate(num1, op, num2);
-        display.textContent = displayArray.length = 0;
     });
 });
 
