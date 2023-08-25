@@ -32,11 +32,11 @@ operateBtns.forEach((btn, index) => {
 const firstNum = () => {
     const values = {
         value1: num1,
+        per: percent
     }
     displayArray.push(values);
     console.log(values);
-}
-// populate display
+}// populate display
 const numLabels = [7, 8, 9, 4, 5, 6, 1, 2, 3];
 const leftBtns = document.querySelectorAll(".leftBtns");
 leftBtns.forEach((btn, index) => {
@@ -82,6 +82,14 @@ const enableDecimal = () => {
     decimal.disabled = false;
     decimal.classList.remove("disabled")
 }
+let percent;
+
+const percentage = document.querySelector("#percentage");
+percentage.addEventListener("click", () => {
+    percent = displayArray.join('') / 100;
+    display.textContent = percent;
+    displayArray.length = 0;
+});
 
 // takes in numbers to run the calculator with one function 
 function operate(num1, op, num2) {
