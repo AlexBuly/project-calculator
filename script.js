@@ -15,7 +15,10 @@ divide();
 
 // calculator buttons
 const calculator = document.querySelector(".calculator");
-const opLabels = ["/", "*", "-", "+", "="];
+const opLabels = ["/", "*", "-", "+"];
+
+let num1;
+let num2;
 
 const operateBtns = document.querySelectorAll(".operateBtns");
 operateBtns.forEach((btn, index) => {
@@ -25,7 +28,6 @@ operateBtns.forEach((btn, index) => {
         num1 = displayArray.join('');
         firstNum();
         displayArray.length = 0;
-        operate(num1, op, num2);
     });
 });
 
@@ -36,7 +38,12 @@ const firstNum = () => {
     }
     displayArray.push(values);
     console.log(values);
-}// populate display
+}
+
+// populate display
+
+let num;
+
 const numLabels = [7, 8, 9, 4, 5, 6, 1, 2, 3];
 const leftBtns = document.querySelectorAll(".leftBtns");
 leftBtns.forEach((btn, index) => {
@@ -90,6 +97,21 @@ percentage.addEventListener("click", () => {
     display.textContent = percent;
     displayArray.length = 0;
 });
+
+const equals = document.querySelector(".equals");
+equals.addEventListener("click", () => {
+    num2 = displayArray.join('');
+    secondNum();
+});
+
+const secondNum = () => {
+    const values2 = {
+        value2: num2,
+        per2: percent
+    }
+    displayArray.push(values2);
+    console.log(values2);
+}
 
 // takes in numbers to run the calculator with one function 
 function operate(num1, op, num2) {
