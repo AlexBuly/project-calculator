@@ -28,6 +28,7 @@ operateBtns.forEach((btn, index) => {
         num1 = displayArray.join('');
         firstNum();
         displayArray.length = 0;
+        enableDecimal();
     });
 });
 
