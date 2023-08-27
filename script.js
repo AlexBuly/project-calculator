@@ -102,6 +102,7 @@ const equals = document.querySelector(".equals");
 equals.addEventListener("click", () => {
     num2 = displayArray.join('');
     secondNum();
+    display.textContent = operate(num1, op, num2)
 });
 
 const secondNum = () => {
