@@ -25,7 +25,7 @@ operateBtns.forEach((btn, index) => {
     btn.textContent = opLabels[index];
     btn.addEventListener("click", () => {
         op = opLabels[index];
-        num1 = displayArray.join('');
+        num1 = Number(displayArray.join(''));
         firstNum();
         displayArray.length = 0;
         enableDecimal();
@@ -53,7 +53,7 @@ leftBtns.forEach((btn, index) => {
         num = numLabels[index];
         displayArray.push(num);
         displayArray.splice(10);
-        display.textContent =  displayArray.join('');
+        display.textContent =  Number(displayArray.join(''));
     });
 });
 
@@ -94,14 +94,14 @@ let percent;
 
 const percentage = document.querySelector("#percentage");
 percentage.addEventListener("click", () => {
-    percent = displayArray.join('') / 100;
+    percent = Number(displayArray.join('')) / 100;
     display.textContent = percent;
     displayArray.length = 0;
 });
 
 const equals = document.querySelector(".equals");
 equals.addEventListener("click", () => {
-    num2 = displayArray.join('');
+    num2 = Number(displayArray.join(''));
     secondNum();
     display.textContent = operate(num1, op, num2)
 });
