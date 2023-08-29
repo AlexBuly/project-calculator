@@ -107,11 +107,14 @@ percentage.addEventListener("click", () => {
     displayArray.length = 0;
 });
 
+let result;
+
 const equals = document.querySelector(".equals");
 equals.addEventListener("click", () => {
     num2 = Number(displayArray.join(''));
     secondNum();
-    display.textContent = operate(num1, op, num2)
+    result = operate(num1, op, num2);
+    display.textContent = result;
 });
 
 const secondNum = () => {
