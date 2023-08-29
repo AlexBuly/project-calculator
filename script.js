@@ -57,6 +57,14 @@ leftBtns.forEach((btn, index) => {
     });
 });
 
+const zero = document.querySelector("#zero");
+zero.addEventListener("click", () => {
+    ze = 0;
+    displayArray.push(ze);
+    displayArray.splice(10);
+    display.textContent = Number(displayArray.join(''));
+})
+
 const clear = document.querySelector(".clear");
 clear.addEventListener("click", () => {
     displayArray.length = 0;
@@ -125,4 +133,4 @@ function operate(num1, op, num2) {
 }
 
 // use result and new number as new number pair 
-// works when dividing by 0 
+// message for dividing by zero
