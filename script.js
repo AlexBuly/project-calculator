@@ -8,12 +8,12 @@ add();
 subtract();
 multiply();
 divide();
-
- const display = document.querySelector(".display");
+ 
+const display = document.querySelector(".display");
  const displayArray = [];
  display.textContent = 0;
 
-// calculator buttons
+ // calculator buttons
 const calculator = document.querySelector(".calculator");
 const opLabels = ["/", "*", "-", "+"];
 
@@ -21,28 +21,36 @@ let num1;
 let num2;
 
 const operateBtns = document.querySelectorAll(".operateBtns");
-operateBtns.forEach((btn, index) => {
-    btn.textContent = opLabels[index];
-    btn.addEventListener("click", () => {
-        op = opLabels[index];
-        num1 = Number(displayArray.join(''));
-        firstNum();
-        displayArray.length = 0;
-        enableDecimal();
-    });
-});
+function operations() {
+    operateBtns.forEach((btn, index) => {
+        btn.textContent = opLabels[index];
+        btn.addEventListener("click", () => {
+            op = opLabels[index];
+            firstNum();
+            displayArray.length = 0;
+            enableDecimal(); 
+            /*secondNum() = false
 
-const firstNum = () => {
+            if (!secondNum && operations) {
+                secondNum() = true;
+                firstNum();
+            }*/
+        });
+    });
+}
+
+operations();
+
+function firstNum() {
+    num1 = Number(displayArray.join(''));
     const values = {
         value1: num1,
         per: percent
-    }
+    };
     displayArray.push(values);
     console.log(values);
 }
-
 // populate display
-
 let num;
 
 const numLabels = [7, 8, 9, 4, 5, 6, 1, 2, 3];
@@ -57,14 +65,8 @@ leftBtns.forEach((btn, index) => {
     });
 });
 
-const zero = document.querySelector("#zero");
-zero.addEventListener("click", () => {
-    ze = 0;
-    displayArray.push(ze);
-    displayArray.splice(10);
-    display.textContent = Number(displayArray.join(''));
-})
-
+let percent;
+  
 const clear = document.querySelector(".clear");
 clear.addEventListener("click", () => {
     displayArray.length = 0;
@@ -72,6 +74,15 @@ clear.addEventListener("click", () => {
     num1 = '';
     enableDecimal();
 });
+
+const zero = document.querySelector("#zero");
+zero.addEventListener("click", () => {
+    ze = 0;
+    displayArray.push(ze);
+    displayArray.splice(10);
+    display.textContent = Number(displayArray.join(''));
+});
+
 
 const del = document.querySelector(".del");
 del.addEventListener("click", () => {
@@ -98,7 +109,6 @@ const enableDecimal = () => {
     decimal.disabled = false;
     decimal.classList.remove("disabled")
 }
-let percent;
 
 const percentage = document.querySelector("#percentage");
 percentage.addEventListener("click", () => {
@@ -107,17 +117,15 @@ percentage.addEventListener("click", () => {
     displayArray.length = 0;
 });
 
-let result;
-
 const equals = document.querySelector(".equals");
 equals.addEventListener("click", () => {
-    num2 = Number(displayArray.join(''));
     secondNum();
     result = operate(num1, op, num2);
     display.textContent = result;
 });
-
-const secondNum = () => {
+     
+function secondNum() {
+    num2 = Number(displayArray.join(''));
     const values2 = {
         value2: num2,
         per2: percent
@@ -125,7 +133,6 @@ const secondNum = () => {
     displayArray.push(values2);
     console.log(values2);
 }
-
 // takes in numbers to run the calculator with one function 
 function operate(num1, op, num2) {
     return op === "+" ? add(num1, num2)
@@ -134,6 +141,5 @@ function operate(num1, op, num2) {
     : op === "/" ? divide(num1, num2)
     : 0; 
 }
-
 // use result and new number as new number pair 
-// message for dividing by zero
+// works when dividing by 0 
