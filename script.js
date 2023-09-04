@@ -12,7 +12,7 @@ divide();
 const display = document.querySelector(".display");
  const displayArray = [];
  display.textContent = 0;
- const opers = [];
+ const operateArray = [];
 
  // calculator buttons
 const calculator = document.querySelector(".calculator");
@@ -23,29 +23,23 @@ let num2;
 let op;
 
 const operateBtns = document.querySelectorAll(".operateBtns");
-function operations() {
-    operateBtns.forEach((btn, index) => {
-        btn.textContent = opLabels[index];
-        btn.addEventListener("click", () => {
-            op = opLabels[index];
-            opers.push(op);
-            //firstNum();
-            //displayArray.length = 0;
-            enableDecimal();
-            if (opers.length === 1) {
-                firstNum()
-                displayArray.length = 0;
-            } else if (opers.length > 1) {
-                secondNum();
-                display.textContent = operate(num1, op, num2);
-            }
-        });
+operateBtns.forEach((btn, index) => {
+    btn.textContent = opLabels[index];
+    btn.addEventListener("click", () => {
+        op = opLabels[index];
+        operateArray.push(op);
+        enableDecimal();
+        if (operateArray.length === 1) {
+            firstNum()
+            displayArray.length = 0;
+        } else if (operateArray.length > 1) {
+            secondNum();
+            display.textContent = result;
+        }
     });
-}
+});
 
-operations();
-
-function firstNum() {
+const firstNum = () => {
     num1 = Number(displayArray.join(''));
     const values = {
         value1: num1,
@@ -74,8 +68,13 @@ let percent;
 const clear = document.querySelector(".clear");
 clear.addEventListener("click", () => {
     displayArray.length = 0;
+    operateArray.length = 0;
     display.textContent = 0;
     num1 = '';
+    num2 = '';
+    num = '';
+    ze = '';
+
     enableDecimal();
 });
 
@@ -92,7 +91,11 @@ const del = document.querySelector(".del");
 del.addEventListener("click", () => {
     displayArray.splice(-1);
     display.textContent = displayArray.join('');
+    operateArray.length = 0;
     num1 = '';
+    num2 = '';
+    num = '';
+    ze = '';
     enableDecimal();
 });
 
@@ -121,6 +124,8 @@ percentage.addEventListener("click", () => {
     displayArray.length = 0;
 });
 
+let result;
+
 const equals = document.querySelector(".equals");
 equals.addEventListener("click", () => {
     secondNum();
@@ -128,7 +133,7 @@ equals.addEventListener("click", () => {
     display.textContent = result;
 });
      
-function secondNum() {
+const secondNum = () => {
     num2 = Number(displayArray.join(''));
     const values2 = {
         value2: num2,
