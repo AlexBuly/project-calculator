@@ -12,6 +12,7 @@ divide();
 const display = document.querySelector(".display");
  const displayArray = [];
  display.textContent = 0;
+ const opers = [];
 
  // calculator buttons
 const calculator = document.querySelector(".calculator");
@@ -19,6 +20,7 @@ const opLabels = ["/", "*", "-", "+"];
 
 let num1;
 let num2;
+let op;
 
 const operateBtns = document.querySelectorAll(".operateBtns");
 function operations() {
@@ -26,15 +28,17 @@ function operations() {
         btn.textContent = opLabels[index];
         btn.addEventListener("click", () => {
             op = opLabels[index];
-            firstNum();
-            displayArray.length = 0;
-            enableDecimal(); 
-            /*secondNum() = false
-
-            if (!secondNum && operations) {
-                secondNum() = true;
-                firstNum();
-            }*/
+            opers.push(op);
+            //firstNum();
+            //displayArray.length = 0;
+            enableDecimal();
+            if (opers.length === 1) {
+                firstNum()
+                displayArray.length = 0;
+            } else if (opers.length > 1) {
+                secondNum();
+                display.textContent = operate(num1, op, num2);
+            }
         });
     });
 }
@@ -133,6 +137,7 @@ function secondNum() {
     displayArray.push(values2);
     console.log(values2);
 }
+
 // takes in numbers to run the calculator with one function 
 function operate(num1, op, num2) {
     return op === "+" ? add(num1, num2)
