@@ -21,6 +21,7 @@ const opLabels = ["/", "*", "-", "+"];
 let num1;
 let num2;
 let op;
+let result;
 
 const operateBtns = document.querySelectorAll(".operateBtns");
 operateBtns.forEach((btn, index) => {
@@ -30,23 +31,21 @@ operateBtns.forEach((btn, index) => {
         operateArray.push(op);
         enableDecimal();
         if (operateArray.length === 1) {
-            firstNum()
+            firstNum();
             displayArray.length = 0;
-        } else if (operateArray.length > 1) {
+        } else if (operateArray.length === 2) {
             secondNum();
+            result = operate(num1, op, num2);
+            console.log(result);
             display.textContent = result;
-        }
+        } 
     });
 });
 
 const firstNum = () => {
     num1 = Number(displayArray.join(''));
-    const values = {
-        value1: num1,
-        per: percent
-    };
-    displayArray.push(values);
-    console.log(values);
+    displayArray.push(num1);
+    console.log(num1);
 }
 // populate display
 let num;
@@ -124,23 +123,16 @@ percentage.addEventListener("click", () => {
     displayArray.length = 0;
 });
 
-let result;
-
 const equals = document.querySelector(".equals");
 equals.addEventListener("click", () => {
     secondNum();
-    result = operate(num1, op, num2);
-    display.textContent = result;
+    display.textContent = operate(num1, op, num2);
 });
      
 const secondNum = () => {
     num2 = Number(displayArray.join(''));
-    const values2 = {
-        value2: num2,
-        per2: percent
-    }
-    displayArray.push(values2);
-    console.log(values2);
+    displayArray.push(num2);
+    console.log(num2);
 }
 
 // takes in numbers to run the calculator with one function 
