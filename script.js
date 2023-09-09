@@ -40,7 +40,7 @@ operateBtns.forEach((btn, index) => {
             display.textContent = result;
             displayArray.length = 0;
         } else if (operateArray.length > 2) {
-            firstNum();
+            secondNum();
             display.textContent = operate(result, op, num2);
             displayArray.length = 0;
         }
