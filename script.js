@@ -38,7 +38,12 @@ operateBtns.forEach((btn, index) => {
             result = operate(num1, op, num2);
             console.log(result);
             display.textContent = result;
-        } 
+            displayArray.length = 0;
+        } else if (operateArray.length > 2) {
+            firstNum();
+            display.textContent = operate(result, op, num2);
+            displayArray.length = 0;
+        }
     });
 });
 
@@ -46,6 +51,12 @@ const firstNum = () => {
     num1 = Number(displayArray.join(''));
     displayArray.push(num1);
     console.log(num1);
+
+    if (operateArray.length > 2) {
+        num1 = result; 
+        //num2 = Number(displayArray.join(''));
+        //console.log(num2);
+    }
 }
 // populate display
 let num;
@@ -95,6 +106,8 @@ del.addEventListener("click", () => {
     num2 = '';
     num = '';
     ze = '';
+    percent = '';
+    dec = '';
     enableDecimal();
 });
 
