@@ -24,6 +24,7 @@ let op;
 let result;
 
 const operateBtns = document.querySelectorAll(".operateBtns");
+
 operateBtns.forEach((btn, index) => {
     btn.textContent = opLabels[index];
     btn.addEventListener("click", () => {
@@ -35,25 +36,31 @@ operateBtns.forEach((btn, index) => {
             displayArray.length = 0;
         } else if (operateArray.length === 2) {
             secondNum();
+            op = operateArray.at(-2);
             result = operate(num1, op, num2);
             console.log(result);
-            display.textContent = result;
+            display.textContent = operate(num1, op, num2);
             displayArray.length = 0;
         } else if (operateArray.length > 2) {
             secondNum();
-            display.textContent = operate(result, op, num2);
+            op = operateArray.at(-2);
+            result = operate(result, op, num2);
+            display.textContent = result;
+            console.log(result);
             displayArray.length = 0;
         }
     });
 });
 
-const firstNum = () => {
+
+
+function firstNum() {
     num1 = Number(displayArray.join(''));
     displayArray.push(num1);
     console.log(num1);
 
     if (operateArray.length > 2) {
-        num1 = result; 
+        num1 = result;
         //num2 = Number(displayArray.join(''));
         //console.log(num2);
     }
