@@ -93,7 +93,6 @@ clear.addEventListener("click", () => {
     num = '';
     ze = '';
     result = '';
-
     enableDecimal();
 });
 
@@ -144,7 +143,7 @@ percentage.addEventListener("click", () => {
     displayArray.length = 0;
     displayArray.push(percent);
     display.textContent = percent;
-    //displayArray.length = 0;
+    disableDecimal();
 });
 
 const equals = document.querySelector(".equals");
