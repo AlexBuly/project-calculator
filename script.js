@@ -77,7 +77,7 @@ leftBtns.forEach((btn, index) => {
         num = numLabels[index];
         displayArray.push(num);
         displayArray.splice(10);
-        display.textContent =  Number(displayArray.join(''));
+        display.textContent = Number(displayArray.join(''));
     });
 });
 
@@ -141,8 +141,10 @@ const enableDecimal = () => {
 const percentage = document.querySelector("#percentage");
 percentage.addEventListener("click", () => {
     percent = Number(displayArray.join('')) / 100;
-    display.textContent = percent;
     displayArray.length = 0;
+    displayArray.push(percent);
+    display.textContent = percent;
+    //displayArray.length = 0;
 });
 
 const equals = document.querySelector(".equals");
