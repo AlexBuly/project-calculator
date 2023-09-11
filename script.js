@@ -13,6 +13,7 @@ const display = document.querySelector(".display");
  const displayArray = [];
  display.textContent = 0;
  const operateArray = [];
+ console.log(operateArray);
 
  // calculator buttons
 const calculator = document.querySelector(".calculator");
@@ -91,6 +92,7 @@ clear.addEventListener("click", () => {
     num2 = '';
     num = '';
     ze = '';
+    result = '';
 
     enableDecimal();
 });
@@ -145,8 +147,18 @@ percentage.addEventListener("click", () => {
 
 const equals = document.querySelector(".equals");
 equals.addEventListener("click", () => {
-    secondNum();
-    display.textContent = operate(num1, op, num2);
+    if (operateArray.length === 1) {
+        secondNum();
+        display.textContent = operate(num1, op, num2);
+        console.log(operate(num1, op, num2));
+        displayArray.length = 0;
+    } else if (operateArray.length > 1) {
+        secondNum();
+        num1 = result; 
+        op = operateArray.at(-1);
+        display.textContent = operate(num1, op, num2);
+        displayArray.length = 0;
+    }
 });
      
 const secondNum = () => {
