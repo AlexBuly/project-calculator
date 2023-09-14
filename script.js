@@ -25,6 +25,8 @@ let op;
 let result;
 let equalsResult;
 let expo;
+let fixed;
+let dec;
 
 const operateBtns = document.querySelectorAll(".operateBtns");
 
@@ -51,11 +53,11 @@ operateBtns.forEach((btn, index) => {
             display.textContent = result;
             console.log(result);
             displayArray.length = 0;
-        }
-        if (result > 9999999999) {
-            expo = result.toExponential();
-            display.textContent = expo;
         } 
+        if (result > 9999999999) {
+            expo = result.toExponential(0);
+            display.textContent = expo;
+        }
     });
 });
 
@@ -182,7 +184,7 @@ equals.addEventListener("click", () => {
         num2 = 0;
         //display.textContent = num1;
     } if (result > 9999999999) {
-        expo = result.toExponential();
+        expo = result.toExponential(0);
         display.textContent = expo;
     }
 });
