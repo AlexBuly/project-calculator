@@ -13,7 +13,7 @@ const display = document.querySelector(".display");
  const displayArray = [];
  display.textContent = 0;
  const operateArray = [];
- console.log(operateArray);
+ const equalsArray = [];
 
  // calculator buttons
 const calculator = document.querySelector(".calculator");
@@ -23,6 +23,8 @@ let num1;
 let num2;
 let op;
 let result;
+let equalsResult;
+let expo;
 
 const operateBtns = document.querySelectorAll(".operateBtns");
 
@@ -50,6 +52,10 @@ operateBtns.forEach((btn, index) => {
             console.log(result);
             displayArray.length = 0;
         }
+        if (result > 9999999999) {
+            expo = result.toExponential();
+            display.textContent = expo;
+        } 
     });
 });
 
@@ -59,12 +65,17 @@ function firstNum() {
     num1 = Number(displayArray.join(''));
     displayArray.push(num1);
     console.log(num1);
-
+    // use result and new number as new number pair 
     if (operateArray.length > 2) {
         num1 = result;
-        //num2 = Number(displayArray.join(''));
-        //console.log(num2);
-    }
+    } else if (operateArray.length > 1 && equalsArray.length > 1) {
+        num1 = equalsResult;
+        display.textContent = equalsResult;
+    } else if (operateArray.length === 0) {
+        result = Number(displayArray.join(''));
+        display.textContent = result;
+        displayArray.length = 0;
+    } 
 }
 // populate display
 let num;
@@ -87,6 +98,7 @@ const clear = document.querySelector(".clear");
 clear.addEventListener("click", () => {
     displayArray.length = 0;
     operateArray.length = 0;
+    equalsArray.length = 0;
     display.textContent = 0;
     num1 = '';
     num2 = '';
@@ -116,6 +128,7 @@ del.addEventListener("click", () => {
     ze = '';
     percent = '';
     dec = '';
+    eq = '';
     enableDecimal();
 });
 
@@ -148,17 +161,29 @@ percentage.addEventListener("click", () => {
 
 const equals = document.querySelector(".equals");
 equals.addEventListener("click", () => {
+    eq = "=";
+    equalsArray.push(eq);
     if (operateArray.length === 1) {
         secondNum();
-        display.textContent = operate(num1, op, num2);
+        result = operate(num1, op, num2);
+        display.textContent = result;
         console.log(operate(num1, op, num2));
         displayArray.length = 0;
     } else if (operateArray.length > 1) {
         secondNum();
         num1 = result; 
         op = operateArray.at(-1);
-        display.textContent = operate(num1, op, num2);
+        equalsResult = operate(num1, op, num2);
+        display.textContent = equalsResult;
+        console.log(equalsResult);
         displayArray.length = 0;
+    } else if (operateArray.length === 0) {
+        num1 = Number(displayArray.join(''));
+        num2 = 0;
+        //display.textContent = num1;
+    } if (result > 9999999999) {
+        expo = result.toExponential();
+        display.textContent = expo;
     }
 });
      
@@ -176,5 +201,4 @@ function operate(num1, op, num2) {
     : op === "/" ? divide(num1, num2)
     : 0; 
 }
-// use result and new number as new number pair 
 // works when dividing by 0 
