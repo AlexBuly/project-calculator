@@ -25,8 +25,6 @@ let op;
 let result;
 let equalsResult;
 let expo;
-let fixed;
-let dec;
 
 const operateBtns = document.querySelectorAll(".operateBtns");
 
@@ -44,16 +42,17 @@ operateBtns.forEach((btn, index) => {
             op = operateArray.at(-2);
             result = operate(num1, op, num2);
             console.log(result);
-            display.textContent = operate(num1, op, num2);
+            display.textContent = result.toFixed(9) * 1;
             displayArray.length = 0;
         } else if (operateArray.length > 2) {
+            // use result and new number as new number pair
             secondNum();
             op = operateArray.at(-2);
             result = operate(result, op, num2);
-            display.textContent = result;
+            display.textContent = result.toFixed(9) * 1;
             console.log(result);
             displayArray.length = 0;
-        } 
+        }
         if (result > 9999999999) {
             expo = result.toExponential(0);
             display.textContent = expo;
@@ -61,23 +60,10 @@ operateBtns.forEach((btn, index) => {
     });
 });
 
-
-
 function firstNum() {
     num1 = Number(displayArray.join(''));
     displayArray.push(num1);
-    console.log(num1);
-    // use result and new number as new number pair 
-    if (operateArray.length > 2) {
-        num1 = result;
-    } else if (operateArray.length > 1 && equalsArray.length > 1) {
-        num1 = equalsResult;
-        display.textContent = equalsResult;
-    } else if (operateArray.length === 0) {
-        result = Number(displayArray.join(''));
-        display.textContent = result;
-        displayArray.length = 0;
-    } 
+    console.log(num1); 
 }
 // populate display
 let num;
@@ -124,13 +110,7 @@ del.addEventListener("click", () => {
     displayArray.splice(-1);
     display.textContent = displayArray.join('');
     operateArray.length = 0;
-    num1 = '';
-    num2 = '';
-    num = '';
-    ze = '';
-    percent = '';
-    dec = '';
-    eq = '';
+    equalsArray.length = 0;
     enableDecimal();
 });
 
@@ -168,7 +148,7 @@ equals.addEventListener("click", () => {
     if (operateArray.length === 1) {
         secondNum();
         result = operate(num1, op, num2);
-        display.textContent = result;
+        display.textContent = result.toFixed(9) * 1;
         console.log(operate(num1, op, num2));
         displayArray.length = 0;
     } else if (operateArray.length > 1) {
@@ -176,13 +156,13 @@ equals.addEventListener("click", () => {
         num1 = result; 
         op = operateArray.at(-1);
         equalsResult = operate(num1, op, num2);
-        display.textContent = equalsResult;
+        display.textContent = equalsResult.toFixed(9) * 1;
         console.log(equalsResult);
+        num1 = equalsResult.toFixed(9) * 1;
         displayArray.length = 0;
     } else if (operateArray.length === 0) {
         num1 = Number(displayArray.join(''));
         num2 = 0;
-        //display.textContent = num1;
     } if (result > 9999999999) {
         expo = result.toExponential(0);
         display.textContent = expo;
@@ -201,6 +181,6 @@ function operate(num1, op, num2) {
     : op === "-" ? subtract(num1, num2)
     : op === "*" ? multiply(num1, num2)
     : op === "/" ? divide(num1, num2)
-    : 0; 
+    : 0
 }
 // works when dividing by 0 
