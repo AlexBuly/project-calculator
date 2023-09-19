@@ -41,7 +41,6 @@ operateBtns.forEach((btn, index) => {
             secondNum();
             op = operateArray.at(-2);
             result = operate(num1, op, num2);
-            console.log(result);
             display.textContent = result.toFixed(9) * 1;
             displayArray.length = 0;
         } else if (operateArray.length > 2) {
@@ -50,7 +49,6 @@ operateBtns.forEach((btn, index) => {
             op = operateArray.at(-2);
             result = operate(result, op, num2);
             display.textContent = result.toFixed(9) * 1;
-            console.log(result);
             displayArray.length = 0;
         }
         if (result > 9999999999) {
@@ -63,7 +61,6 @@ operateBtns.forEach((btn, index) => {
 function firstNum() {
     num1 = Number(displayArray.join(''));
     displayArray.push(num1);
-    console.log(num1); 
 }
 // populate display
 let num;
@@ -149,7 +146,6 @@ equals.addEventListener("click", () => {
         secondNum();
         result = operate(num1, op, num2);
         display.textContent = result.toFixed(9) * 1;
-        console.log(operate(num1, op, num2));
         displayArray.length = 0;
     } else if (operateArray.length > 1) {
         secondNum();
@@ -157,7 +153,6 @@ equals.addEventListener("click", () => {
         op = operateArray.at(-1);
         equalsResult = operate(num1, op, num2);
         display.textContent = equalsResult.toFixed(9) * 1;
-        console.log(equalsResult);
         num1 = equalsResult.toFixed(9) * 1;
         displayArray.length = 0;
     } else if (operateArray.length === 0) {
@@ -172,7 +167,6 @@ equals.addEventListener("click", () => {
 const secondNum = () => {
     num2 = Number(displayArray.join(''));
     displayArray.push(num2);
-    console.log(num2);
 }
 
 // takes in numbers to run the calculator with one function 
