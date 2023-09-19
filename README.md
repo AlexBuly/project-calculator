@@ -1,9 +1,7 @@
 # project-calculator
 
-In this project, I will be creating an on-screen calculator. The calculator will add, subtract, divide, and multiply numbers. 
+In this project, I created an on-screen calculator. The calculator can add, subtract, multiply, and divide numbers. When the user clicks the number buttons, the numbers get added to an array called displayArray. When the user clicks an operator button, it joins those numbers as one and creates a variable called num1 or num2. The result of the operation can be viewed by either clicking the equals button or an operator button again. When clicking an operator button again, the result shown becomes the new num1 and then the user can input num2 again. 
 
-The operations will be created using functions for them that will be put into another function so that when "2+2" is entered, it will return the sum or when "2-2" is entered, it will return the difference.
+Other features include a clear button the clears the display as well as any operations. A delete button which deletes the most recent digit input into the calculator before operating. A decimal button that allows users to input floating point numbers, and a percentage button which divides the number displayed on the screen by 100.
 
-The input for the calculator will be done using buttons. In addition to the operation buttons, there will be an equals button, buttons for the numbers 0-9, a clear button, a backspace button, and a decimal button. The number and decimals will be displayed on a screen above the calculator buttons singularly on the screen when clicked and will be stored so the calculator will remember the numbers when adding on more numbers. 
-
-Only 3 variables will be used for the calculator. First number, the operator, and the second number. When clicking equals, the result will be returned. If the user clicks another operator instead, the result of those first 2 numbers will still be displayed but the additional operation(s) will be added on and stored with the old ones. The calculator will have a way to prevent it from crashing if the user tries to divide by 0. 
+For numbers greater than 9,999,999,999, exponential notation is used since anything larger would overflow the display. Endless decimal values are also fixed to 9 places so they don't overflow off the screen. 
